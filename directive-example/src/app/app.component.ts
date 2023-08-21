@@ -1,0 +1,42 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+})
+export class AppComponent {
+  title = 'directive-example';
+
+  videos = [
+    {
+      title: 'My video 1',
+      share: 415,
+      likes: 257,
+      dislikes: 12,
+      thumbnail: '',
+    },
+    {
+      title: 'My video 2',
+      share: 215,
+      likes: 325,
+      dislikes: 12,
+      thumbnail: '',
+    },
+    {
+      title: 'My video 3',
+      share: 513,
+      likes: 105,
+      dislikes: 12,
+      thumbnail: '',
+    },
+  ];
+
+  mostLikedVideos = this.getMostLikedVideos();
+
+  getMostLikedVideos() {
+    let videoCopy = this.videos;
+
+    return videoCopy.sort((curr, next) => next.likes - curr.likes)[0];
+  }
+}
